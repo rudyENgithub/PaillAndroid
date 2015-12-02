@@ -104,5 +104,6 @@
     <orderEntry type="library" exported="" name="play-services-nearby-7.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-wearable-7.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-wallet-7.0.0" level="project" />
+    <orderEntry type="module" module-name="ksoap2-android-assembly-2.4-jar-with-dependencies" exported="" />
   </component>
 </module>
