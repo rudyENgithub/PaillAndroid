@@ -8,30 +8,23 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 public class WebService {
-    //Namespace of the Webservice - can be found in WSDL
 
-    //Webservice URL - WSDL File location
+    //SOAP_ACTION : DEL WSDL targetNamespace + METODO DEL WS
+    //METHOD_NAME : METODO DEL WS
+    //NAMESPACE : DEL WSDL targetNamespace
+    //URL : URL DEL WSDL SACADO DESDE GLASSFISH
+    private static final String SOAP_ACTION = "http://ws/login";
+    private static final String METHOD_NAME = "login";
+    private static final String NAMESPACE = "http://ws/";
+    private static final String URL = "http://192.168.1.10:8081/PAILLSQLSERVER-war/LoginWS?WSDL";
 
-    //SOAP Action URI again Namespace + Web method name
 
-    // Metodo que queremos ejecutar en el servicio web
-
-    private static final String SOAP_ACTION = "http://paquete_services/getNombreMateria";
-    private static final String METHOD_NAME = "getNombreMateria";
-    private static final String NAMESPACE = "http://paquete_services/";
-    private static final String URL = "http://192.168.1.10:8081/WSPostgresd/dosWebService?WSDL";
-    // Namespace definido en el servicio web
-    //private static final String namespace = "http://www.webserviceX.NET";
-    // namespace + metodo
-    //private static final String accionSoap = "http://www.webserviceX.NET/GetCitiesByCountry";
-    // Fichero de definicion del servcio web
-    //private static final String url = "http://www.webservicex.net/globalweather.asmx";
-
-    public static String invokeHelloWorldWS(String name, String webMethName) {
+    public static String invokeLoginWS(String uid, String password, String webMethName) {
         String resTxt = null;
         // Create request
         SoapObject request = new SoapObject(NAMESPACE, webMethName);
-        request.addProperty("id", name); // Paso parametros al WS
+        request.addProperty("uid", uid); // Paso parametros al WS
+        request.addProperty("password", password);
 
         // Property which holds input parameters
 	/*	PropertyInfo sayHelloPI = new PropertyInfo();
