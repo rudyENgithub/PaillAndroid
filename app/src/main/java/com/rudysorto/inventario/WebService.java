@@ -26,17 +26,6 @@ public class WebService {
         request.addProperty("uid", uid); // Paso parametros al WS
         request.addProperty("password", password);
 
-        // Property which holds input parameters
-	/*	PropertyInfo sayHelloPI = new PropertyInfo();
-		// Set Name
-		sayHelloPI.setName("name");
-		// Set Value
-		sayHelloPI.setValue(name);
-		// Set dataType
-		sayHelloPI.setType(String.class);
-		// Add the property to request object
-		request.addProperty(sayHelloPI);*/
-        // Create envelope
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         // Set output SOAP object

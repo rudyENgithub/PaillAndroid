@@ -16,6 +16,9 @@ public class Login extends ActionBarActivity {
     Button btnLogin;
     EditText edtUsuario;
     EditText edtPassword;
+    public String resultado;
+    public String usuario, password;
+
 
 
 
@@ -68,22 +71,32 @@ public class Login extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class AsyncCallLoginWs extends AsyncTask<String, Void, Void>{
+    private class AsyncCallLoginWs extends AsyncTask<Void, Void, String>{
         @Override
-        protected Void doInBackground(String... params) {
+        protected String doInBackground(Void... params) {
+           return WebService.invokeLoginWS(usuario, password , "login");
 
-            return null;
         }
 
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            usuario = edtUsuario.getText().toString();
+            password = edtPassword.getText().toString();
+
+          //  super.onPreExecute();
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(String aVoid) {
+            //super.onPostExecute(aVoid);
+            if(aVoid.equals("OK")){
+                Toast.makeText(getApplicationContext(), "Bienvenido a la Movil APP PAILL", Toast.LENGTH_LONG).show();
+            }else if(aVoid.equals("ERR")) {
+                Toast.makeText(getApplicationContext(), "Sus credenciales no son correctas", Toast.LENGTH_LONG).show();
+            }
+           // Toast.makeText(getApplicationContext(), aVoid, Toast.LENGTH_LONG).show();
+
         }
     }
 }
