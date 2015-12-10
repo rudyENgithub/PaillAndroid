@@ -13,10 +13,10 @@ public class WebService {
     //METHOD_NAME : METODO DEL WS
     //NAMESPACE : DEL WSDL targetNamespace
     //URL : URL DEL WSDL SACADO DESDE GLASSFISH
-    private static final String SOAP_ACTION = "http://ws/login";
+    private static final String SOAP_ACTION = "http://ws.rudysorto.com/login";
     private static final String METHOD_NAME = "login";
-    private static final String NAMESPACE = "http://ws/";
-    private static final String URL = "http://192.168.1.10:8081/PAILLSQLSERVER-war/LoginWS?WSDL";
+    private static final String NAMESPACE = "http://ws.rudysorto.com/";
+    private static final String URL = "http://192.168.16.4:8080/PaillMoviles-war/LoginWS?WSDL";
 
 
     public static String invokeLoginWS(String uid, String password, String webMethName) {

@@ -1,5 +1,6 @@
 package com.rudysorto.inventario;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ public class Login extends ActionBarActivity {
 
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +39,8 @@ public class Login extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 if (edtUsuario.getText().length() != 0  && edtUsuario.getText().toString() != "" && edtPassword.getText().length() != 0 && edtPassword.getText().toString() != "") {
-
                     AsyncCallLoginWs task = new AsyncCallLoginWs();
-
-                    task.execute();
-
+                   task.execute();
                 } else {
                     Toast.makeText(getApplicationContext(), "Ingrese sus credenciales", Toast.LENGTH_SHORT).show();
                 }
@@ -47,7 +48,6 @@ public class Login extends ActionBarActivity {
         });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,11 +92,18 @@ public class Login extends ActionBarActivity {
             //super.onPostExecute(aVoid);
             if(aVoid.equals("OK")){
                 Toast.makeText(getApplicationContext(), "Bienvenido a la Movil APP PAILL", Toast.LENGTH_LONG).show();
+                pasarAPrincipal();
             }else if(aVoid.equals("ERR")) {
                 Toast.makeText(getApplicationContext(), "Sus credenciales no son correctas", Toast.LENGTH_LONG).show();
             }
-           // Toast.makeText(getApplicationContext(), aVoid, Toast.LENGTH_LONG).show();
-
+           // Toast.makeText(getApplicationContext(), aVoid, Toast.LENGTH_LONG).show()
         }
+    }
+
+    public void pasarAPrincipal(){
+        Intent i = new Intent(getApplicationContext(), MenuPrincipal.class);
+        i.putExtra("uid", edtUsuario.getText().toString());
+        startActivity(i);
+
     }
 }

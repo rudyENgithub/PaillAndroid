@@ -24,13 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/textView2"
+            android:id="@+id/lblUid"
+            android:textSize="30sp"
             android:gravity="right"/>
-    </LinearLayout>
 
+
+
+    </LinearLayout>
     <ListView
-        android:layout_width="match_parent"
+        android:id="@+id/listapps"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="match_parent">
+    </ListView>
+
 </LinearLayout >
