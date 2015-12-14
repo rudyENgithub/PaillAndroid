@@ -32,8 +32,6 @@ public class MenuPrincipal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         lblUid = (TextView) findViewById(R.id.lblUid);
-
-
 /*
         // ListView Item Click Listener
         listadeApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,14 +55,16 @@ public class MenuPrincipal extends Activity {
 
         });*/
 
-        AsyncCallListaApp asyncListaApp = new AsyncCallListaApp();
-        asyncListaApp.execute();
-
-/*
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        lblUid.setText("Bienvenído " + bundle.getString("uid"));
-        */
+        lblUid.setText("Bienvenído " + bundle.getString("uid") +  " -  Menú Principal");
+
+
+        String[] myTaskParams = {  bundle.getString("uid") };
+       // myAsyncTask = new myAsyncTask ().execute(myTaskParams);
+        AsyncCallListaApp asyncListaApp = new AsyncCallListaApp();
+        asyncListaApp.execute(myTaskParams);
+
     }
 
 
@@ -90,12 +90,14 @@ public class MenuPrincipal extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class AsyncCallListaApp extends AsyncTask<Void, Void, ArrayList<AppMoviles>> {
+    private class AsyncCallListaApp extends AsyncTask<String, Void, ArrayList<AppMoviles>> {
 
 
         @Override
-        protected ArrayList<AppMoviles> doInBackground(Void... params) {
-            ArrayList<AppMoviles> appList = (ArrayList<AppMoviles>) WebServiceEJB.invokeHelloWorldWSReload("rsorto", "selectLike");
+        protected ArrayList<AppMoviles> doInBackground(String... params) {
+            String atuid = params[0];
+            ArrayList<AppMoviles> appList = (ArrayList<AppMoviles>) WebServiceEJB.invokeHelloWorldWSReload(atuid, "" +
+                    "");
 
 // Attach the adapter to a ListView
           //  listadeApps.setAdapter(adapter);

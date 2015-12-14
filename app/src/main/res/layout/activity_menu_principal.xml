@@ -1,24 +1,29 @@
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+
+
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.rudysorto.inventario.MenuPrincipal"
     android:background="#ffffff">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/textView2"
+        android:background="#101d61" />
+
     <LinearLayout
-        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView"
-             />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -26,15 +31,19 @@
             android:text="New Text"
             android:id="@+id/lblUid"
             android:textSize="30sp"
-            android:gravity="right"/>
+            android:gravity="left"
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp"/>
 
+        <ListView
+
+            android:id="@+id/listapps"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+        </ListView>
 
 
     </LinearLayout>
-    <ListView
-        android:id="@+id/listapps"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </ListView>
+
 
 </LinearLayout >
