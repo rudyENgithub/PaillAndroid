@@ -1,63 +1,40 @@
 package com.rudysorto.inventario;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.rudysorto.inventario.com.rudysorto.inventario.entitys.AppMoviles;
+import com.rudysorto.inventario.adaptadores.AppsAdapter;
+import com.rudysorto.inventario.appFuerzaVentas.ActivityAppFuerzaVentas;
+import com.rudysorto.inventario.entitys.AppMoviles;
+import com.rudysorto.inventario.webservices.WebServiceEJB;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class MenuPrincipal extends Activity {
+public class MenuPrincipal extends Activity  {
 
     public TextView lblUid;
     ListView listadeApps;
     AppsAdapter myadapter;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        lblUid = (TextView) findViewById(R.id.lblUid);
-/*
-        // ListView Item Click Listener
-        listadeApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
 
-                // ListView Clicked item index
-                int itemPosition = position;
-
-                // ListView Clicked item value
-                String itemValue = (String) listadeApps.getItemAtPosition(position);
-
-                // Show Alert
-                Toast.makeText(getApplicationContext(),
-                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
-                        .show();
-
-            }
-
-        });*/
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        lblUid.setText("Bienvenído " + bundle.getString("uid") +  " -  Menú Principal");
+         bundle = intent.getExtras();
+
 
 
         String[] myTaskParams = {  bundle.getString("uid") };
@@ -90,14 +67,15 @@ public class MenuPrincipal extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     private class AsyncCallListaApp extends AsyncTask<String, Void, ArrayList<AppMoviles>> {
 
 
         @Override
         protected ArrayList<AppMoviles> doInBackground(String... params) {
             String atuid = params[0];
-            ArrayList<AppMoviles> appList = (ArrayList<AppMoviles>) WebServiceEJB.invokeHelloWorldWSReload(atuid, "" +
-                    "");
+            ArrayList<AppMoviles> appList = (ArrayList<AppMoviles>) WebServiceEJB.invokeHelloWorldWSReload(atuid, "selectLike");
 
 // Attach the adapter to a ListView
           //  listadeApps.setAdapter(adapter);
@@ -136,11 +114,58 @@ public class MenuPrincipal extends Activity {
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        myadapter = new AppsAdapter(getApplicationContext(), aVoid);
+     //   myadapter = new AppsAdapter(MenuPrincipal.this, aVoid);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         // Assign adapter to ListView
         listadeApps.setAdapter(myadapter);
+
+
+
+        /*
+        // ListView Item Click Listener
+        listadeApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                String itemValue = (String) listadeApps.getItemAtPosition(position);
+
+                // Show Alert
+                Toast.makeText(getApplicationContext(),
+                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+                        .show();
+
+            }
+
+        });*/
     }
 
-}
+
+
+    public void LlamarApp(int idAppMovil){
+
+        switch (idAppMovil){
+
+            case 3:
+                Intent i = new Intent(getApplicationContext(), ActivityAppFuerzaVentas.class);
+                i.putExtra("uid",  bundle.getString("uid"));
+                i.putExtra("idAppMovil", idAppMovil);
+                startActivity(i);
+                break;
+        }
+
+
+    }
+
+
+
+
+    }
+
+

@@ -23,4 +23,10 @@
     <dimen name="line_spacing">1dp</dimen>
     <dimen name="about_padding">10dp</dimen>
     <dimen name="detail_bottom_padding">45dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="titulo_grid_guardar_mm">14sp</dimen>
+    <dimen name="titulo_grid_guardar_mm_tabla">16sp</dimen>
+    <dimen name="titulo_opcines_apps">16sp</dimen>
+    <dimen name="login">22sp</dimen>
+
 </resources>

@@ -5,4 +5,46 @@
     <string name="title_activity_menu_principal">Menú Principal</string>
     <string name="title_activity_splash">Movil APP PAILL</string>
     <string name="login">Ingresar</string>
+    <string name="title_activity_activity_app_fuerza_ventas">ActivityAppFuerzaVentas</string>
+    <string name="btnGuardarMM">Guardar MM</string>
+    <string name="btnAgregar">Agregar MM</string>
+    <string name="desc_list_item_icon">CAMBIAR</string>
+    <string name="alert">Este usuario no tiene disponible la App</string>
+    <string-array name="main_menu_list">
+        <item >List Menu</item>
+        <item >Your Order</item>
+        <item >Confirmation</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Inicio</item>
+        <item>Productos</item>
+        <item>Bitácora</item>
+        <item>Bitácora</item>
+        <item>Profile</item>
+        <item>Information</item>
+        <item>About</item>
+        <item>Share</item>
+        <item>Contact</item>
+        <item>Exit</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons, keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_product</item>
+        <item>@drawable/ic_cart</item>
+        <item>@drawable/ic_checkout</item>
+        <item>@drawable/ic_profile</item>
+        <item>@drawable/ic_info</item>
+        <item>@drawable/ic_about</item>
+        <item>@drawable/ic_share</item>
+        <item>@drawable/ic_contact</item>
+        <item>@drawable/ic_exit</item>
+
+    </array>
+
+    <string name="more_apps">https://play.google.com/store/apps/developer?id=Solodroid</string>
+
 </resources>

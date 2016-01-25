@@ -3,4 +3,7 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="titulo_grid_guardar_mm">64dp</dimen>
+    <dimen name="titulo_grid_guardar_mm_tabla">62sp</dimen>
+    <dimen name="titulo_opcines_apps">64dp</dimen>
 </resources>
