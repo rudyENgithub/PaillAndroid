@@ -1,4 +1,7 @@
 <resources>
+
+    <string name="not_found">No encontrado</string>
+    <string name="search">Buscar</string>
     <string name="app_name">Movil APP PAILL</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -10,6 +13,15 @@
     <string name="btnAgregar">Agregar MM</string>
     <string name="desc_list_item_icon">CAMBIAR</string>
     <string name="alert">Este usuario no tiene disponible la App</string>
+    <string name="alert2">Sin datos</string>
+    <string name="sinposiciones">No se encuentran registros</string>
+    <string name="sininter">Verifique su conexión a Internet</string>
+    <string name="sincredenciales">Ingrese sus credenciales</string>
+    <string name="sinws">El servicio web esta inactivo</string>
+    <string name="credencialesincorrectas">Sus credenciales no son correctas</string>
+    <string name="bienvenidoempresa">Bienvenido a la Movil APP PAILL</string>
+    <string name="quedeseahacer">¿Qué desea hacer?</string>
+
     <string-array name="main_menu_list">
         <item >List Menu</item>
         <item >Your Order</item>
@@ -46,5 +58,31 @@
     </array>
 
     <string name="more_apps">https://play.google.com/store/apps/developer?id=Solodroid</string>
+
+    <string name="title_simple">Simple</string>
+    <string name="title_manual_viewport">Manual Viewport</string>
+    <string name="title_scrolling_1">Scrolling Auto Y</string>
+    <string name="title_scrolling_2">Scrolling Fixed Y</string>
+    <string name="title_styling">Styling</string>
+    <string name="title_simple_bar">Simple Bar Graph</string>
+    <string name="title_multiple_bars">Multiple Bars Graph</string>
+    <string name="title_styling_bar">Styling Bar Graph</string>
+    <string name="title_line_bar_combination">Line and Bar Combination</string>
+    <string name="title_titles">Titles</string>
+    <string name="title_scaling">Scaling</string>
+    <string name="title_second_y_axis">Second Y Axis</string>
+    <string name="title_points_graph">Points Graph</string>
+    <string name="title_tap_on_series">Tap on Series</string>
+    <string name="title_xml_integration">XML Integration</string>
+    <string name="title_no_labels">No Labels</string>
+    <string name="title_dates_xaxis">Dates as X Axis</string>
+    <string name="title_custom_label_formatter">Custom Label Formatter</string>
+    <string name="title_add_series">Add series at runtime</string>
+    <string name="title_realtime_updates">Realtime Updates</string>
+    <string name="title_static_labels">Static Labels</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_show_code">Show code</string>
+
 
 </resources>

@@ -28,5 +28,9 @@
     <dimen name="titulo_grid_guardar_mm_tabla">16sp</dimen>
     <dimen name="titulo_opcines_apps">16sp</dimen>
     <dimen name="login">22sp</dimen>
+    <dimen name="titulobodega">11sp</dimen>
 
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
 </resources>

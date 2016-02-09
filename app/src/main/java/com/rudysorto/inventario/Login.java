@@ -2,20 +2,19 @@ package com.rudysorto.inventario;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.rudysorto.inventario.appFuerzaVentas.BitacoraActivity;
 import com.rudysorto.inventario.webservices.WebService;
 
 
@@ -53,11 +52,16 @@ public class Login extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtUsuario.getText().length() != 0  && edtUsuario.getText().toString() != "" && edtPassword.getText().length() != 0 && edtPassword.getText().toString() != "") {
-                    AsyncCallLoginWs task = new AsyncCallLoginWs();
-                   task.execute();
+
+                if(isNetworkAvailable(getApplicationContext())) {
+                    if (edtUsuario.getText().length() != 0 && edtUsuario.getText().toString() != "" && edtPassword.getText().length() != 0 && edtPassword.getText().toString() != "") {
+                        AsyncCallLoginWs task = new AsyncCallLoginWs();
+                        task.execute();
+                    } else {
+                        Toast.makeText(getApplicationContext(), R.string.sincredenciales, Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Ingrese sus credenciales", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.sininter, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -65,7 +69,12 @@ public class Login extends Activity {
     }
 
 
-
+    public static boolean isNetworkAvailable(Context ct)
+    {
+        ConnectivityManager connectivityManager = (ConnectivityManager) ct.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null;
+    }
 
 
     private class AsyncCallLoginWs extends AsyncTask<Void, Void, String>{
@@ -92,15 +101,20 @@ public class Login extends Activity {
           //  super.onPreExecute();
         }
 
+
+
         @Override
         protected void onPostExecute(String aVoid) {
             //super.onPostExecute(aVoid);
             prgLoadinglogin.setVisibility(8);
             if(aVoid.equals("OK")){
-                Toast.makeText(getApplicationContext(), "Bienvenido a la Movil APP PAILL", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.bienvenidoempresa, Toast.LENGTH_LONG).show();
                 pasarAPrincipal();
             }else if(aVoid.equals("ERR")) {
-                Toast.makeText(getApplicationContext(), "Sus credenciales no son correctas", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),  R.string.credencialesincorrectas , Toast.LENGTH_LONG).show();
+            }
+            else if(aVoid.equals("SER")) {
+                Toast.makeText(getApplicationContext(), R.string.sinws, Toast.LENGTH_LONG).show();
             }
            // Toast.makeText(getApplicationContext(), aVoid, Toast.LENGTH_LONG).show()
         }
